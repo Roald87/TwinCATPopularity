@@ -1,4 +1,4 @@
-name: UpdatePlot
+name: UpdatePlotpip install -r requirements.txt
 
 on:
   push:
@@ -18,6 +18,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+
+      - name: Install required Python packages
+        run: pip install -r requirements.txt
 
       - name: Update plot and CSV files
         run: python3 stackoverflow_plc.py
