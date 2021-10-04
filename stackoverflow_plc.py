@@ -64,8 +64,7 @@ if __name__ == "__main__":
     ax = plt.subplot(111)
 
     for tag in all_tags("*.csv"):
-        latest_questions = pd.DataFrame()
-        get_question_id_and_date(
+        latest_questions = get_question_id_and_date(
             get_latest_questions(tag)
         )
         fname = f"{tag}.csv"
