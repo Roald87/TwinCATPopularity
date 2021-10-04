@@ -59,8 +59,8 @@ so_tag_style = dict(
 )
 
 if __name__ == "__main__":
-    plt.rcParams.update({'font.size': 18})
-    plt.figure(figsize=(10, 6))
+    plt.rcParams.update({'font.size': 12})
+    plt.figure(figsize=(9, 5))
     ax = plt.subplot(111)
 
     for tag in all_tags("*.csv"):
