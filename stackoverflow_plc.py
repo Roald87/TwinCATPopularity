@@ -58,8 +58,7 @@ so_tag_style = dict(
     )
 )
 
-if __name__ == "__main__":
-    plt.rcParams.update({'font.size': 12})
+def plotAndSaveStackOverflowQuestions():
     plt.figure(figsize=(9, 5))
     ax = plt.subplot(111)
 
@@ -103,3 +102,7 @@ if __name__ == "__main__":
     plt.subplots_adjust(right=0.8)
 
     plt.savefig("questions.png")
+
+if __name__ == "__main__":
+    plt.rcParams.update({'font.size': 12})
+    plotAndSaveStackOverflowQuestions()
