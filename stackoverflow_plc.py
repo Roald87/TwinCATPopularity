@@ -100,8 +100,7 @@ def plotAndSaveStackOverflowQuestions():
     ax.spines['right'].set_visible(False)
     ax.spines['top'].set_visible(False)
 
-    plt.subplots_adjust(right=0.8)
-
+    plt.tight_layout()
     plt.savefig("questions.png")
 
 def plotAndSaveSupportTickets():
