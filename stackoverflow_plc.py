@@ -1,3 +1,4 @@
+import logging
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -27,6 +28,11 @@ def get_latest_questions(tag: str) -> str:
         "tagged": tag,
     }
     r = requests.get(STACKEXCHANGE_API_URL, params=payload)
+
+    if not r.ok:
+        logging.error(
+            f"Failed to get latest questions for {tag}. Error code {r.status_code}: {r.reason}"
+        )
 
     return r.json()
 
