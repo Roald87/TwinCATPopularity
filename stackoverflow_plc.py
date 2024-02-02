@@ -116,25 +116,6 @@ def plotAndSaveSupportTickets():
 
     plt.scatter(tickets.index, tickets["Id"])
 
-    # Fit ticket id's over the past year
-    one_year_ago = datetime.now() - timedelta(days=365)
-    latest_tickets = tickets[one_year_ago:]
-    linear_fit = np.poly1d(
-        np.polyfit(latest_tickets.index.to_julian_date(), latest_tickets["Id"], 1)
-    )
-    tickets["trend"] = linear_fit(tickets.index.to_julian_date())
-
-    plt.plot(tickets["trend"][one_year_ago:])
-    plt.plot(tickets["trend"][:one_year_ago], "--")
-
-    # Add label with number of questions per day
-    daily_questions = round(linear_fit.deriv()[0])
-    plt.text(
-        datetime.today() + timedelta(days=30),
-        tickets["trend"][-1],
-        f"{daily_questions:.0f} questions/day",
-    )
-
     # Hide the right and top spines
     ax.spines["right"].set_visible(False)
     ax.spines["top"].set_visible(False)
